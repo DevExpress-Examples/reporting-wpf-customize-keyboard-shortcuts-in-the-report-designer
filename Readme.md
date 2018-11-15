@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainWindow.xaml](./CS/T461248/MainWindow.xaml) (VB: [MainWindow.xaml.vb](./VB/T461248/MainWindow.xaml.vb))
+* [MainWindow.xaml.cs](./CS/T461248/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/T461248/MainWindow.xaml.vb))
+<!-- default file list end -->
 # End-User Report Designer - How to customize keyboard shortcuts
 
 
