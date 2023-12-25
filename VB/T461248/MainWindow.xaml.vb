@@ -1,57 +1,60 @@
-﻿Imports DevExpress.XtraReports.UI
+Imports DevExpress.XtraReports.UI
 Imports System.Windows
 Imports System.Windows.Input
 Imports DevExpress.Mvvm
 
 Namespace T461248
-	''' <summary>
-	''' Interaction logic for MainWindow.xaml
-	''' </summary>
-	Partial Public Class MainWindow
-		Inherits Window
 
-		Public Sub New()
-			InitializeComponent()
-			AddHandler Me.Loaded, AddressOf MainWindow_Loaded
-		End Sub
+    ''' <summary>
+    ''' Interaction logic for MainWindow.xaml
+    ''' </summary>
+    Public Partial Class MainWindow
+        Inherits Window
 
-		Private Sub MainWindow_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
-			Dim viewModel = New MainWindowViewModel(New SampleReport())
-			DataContext = viewModel
+        Public Sub New()
+            Me.InitializeComponent()
+            AddHandler Loaded, AddressOf Me.MainWindow_Loaded
+        End Sub
 
-			designer.RegisterHotKey(Key.OemTilde, ModifierKeys.Control, Function() viewModel.TestCommand, Nothing)
-		End Sub
-	End Class
+        Private Sub MainWindow_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
+            Dim viewModel = New MainWindowViewModel(New SampleReport())
+            DataContext = viewModel
+            Me.designer.RegisterHotKey(Key.OemTilde, ModifierKeys.Control, Function() viewModel.TestCommand, Nothing)
+        End Sub
+    End Class
 
-	Public Class MainWindowViewModel
-		Inherits ViewModelBase
+    Public Class MainWindowViewModel
+        Inherits ViewModelBase
 
-		Private privateReport As XtraReport
-		Public Property Report() As XtraReport
-			Get
-				Return privateReport
-			End Get
-			Private Set(ByVal value As XtraReport)
-				privateReport = value
-			End Set
-		End Property
-		Private privateTestCommand As ICommand
-		Public Property TestCommand() As ICommand
-			Get
-				Return privateTestCommand
-			End Get
-			Private Set(ByVal value As ICommand)
-				privateTestCommand = value
-			End Set
-		End Property
+        Private _Report As XtraReport, _TestCommand As ICommand
 
-		Public Sub New(ByVal report As XtraReport)
-			Me.Report = report
-			TestCommand = New DelegateCommand(AddressOf RunTestCommand)
-		End Sub
+        Public Property Report As XtraReport
+            Get
+                Return _Report
+            End Get
 
-		Private Sub RunTestCommand()
-			GetService(Of IMessageBoxService)().ShowMessage("Test command.")
-		End Sub
-	End Class
+            Private Set(ByVal value As XtraReport)
+                _Report = value
+            End Set
+        End Property
+
+        Public Property TestCommand As ICommand
+            Get
+                Return _TestCommand
+            End Get
+
+            Private Set(ByVal value As ICommand)
+                _TestCommand = value
+            End Set
+        End Property
+
+        Public Sub New(ByVal report As XtraReport)
+            Me.Report = report
+            TestCommand = New DelegateCommand(AddressOf RunTestCommand)
+        End Sub
+
+        Private Sub RunTestCommand()
+            GetService(Of IMessageBoxService)().ShowMessage("Test command.")
+        End Sub
+    End Class
 End Namespace
