@@ -17,7 +17,7 @@ This sample illustrates how to customize the default hotkeys of the Report Desig
 
 * [Customize Report Designer Commands and Keyboard Shortcuts](https://docs.devexpress.com/XtraReports/118067/desktop-reporting/wpf-reporting/end-user-report-designer-for-wpf/api-and-customization/customize-report-designer-commands-and-hot-keys?p=netframework)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=reporting-wpf-customize-keyboard-shortcuts-in-the-report-designer&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=reporting-wpf-customize-keyboard-shortcuts-in-the-report-designer&~~~was_helpful=no)
 
